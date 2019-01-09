@@ -3,7 +3,7 @@
 
 import {ActivityTypes, RecognizerResult, TurnContext} from 'botbuilder';
 import {LuisApplication, LuisPredictionOptions, LuisRecognizer} from 'botbuilder-ai';
-import {isArray} from "util";
+import {isArray, isNumber} from "util";
 
 /**
  * A simple bot that responds to utterances with answers from the Language Understanding (LUIS) service.
@@ -147,6 +147,43 @@ export class LuisBot {
             }
             uhrzeit.setMinutes(uhrzeit.getMinutes())
         }
+
+        zeitRaum.forEach((element) => {
+            // In 30 Minuten etc.
+            if (element.match('.*(in )?\\d{1,3} (minuten|minute).*')) {
+                uhrzeit.setMinutes(Number(element.match('\\d{1,3}')[0]) + uhrzeit.getMinutes());
+            } else if (element.match('.*stunde.*')) {
+                if (element.match('.*(halb|drei viertel|dreiviertel|viertel|einer).*')) {
+                    const stundenbeschreibung: string = element.match('(halb|drei viertel|dreiviertel|viertel|einer stunde)')[0];
+                    let minuten = 0;
+                    switch (stundenbeschreibung) {
+                        case 'halb':
+                            minuten = 30;
+                            break;
+                        case 'drei viertel':
+                            minuten = 45;
+                            break;
+                        case 'dreiviertel':
+                            minuten = 45;
+                            break;
+                        case 'viertel':
+                            minuten = 15;
+                            break;
+                        case 'einer stunde':
+                            minuten = 60;
+                            break;
+                        default:
+                            minuten = 0;
+                    }
+                    uhrzeit.setMinutes(minuten + uhrzeit.getMinutes());
+                } else {
+                    uhrzeit.setHours(Number(element.match('\\d{1,3}')[0]) + uhrzeit.getHours());
+                }
+            }
+
+        });
+
+
         uhrzeit.setSeconds(0);
         console.log(uhrzeit.toLocaleTimeString());
         let res = ' am ' + uhrzeit.toLocaleString('de-DE', {day: 'numeric'}) + '.' + uhrzeit.toLocaleString('de-DE', {month: 'numeric'});
