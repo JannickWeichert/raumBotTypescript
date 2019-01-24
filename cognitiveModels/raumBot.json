@@ -1,9 +1,10 @@
 {
-  "luis_schema_version": "3.1.0",
+  "luis_schema_version": "3.2.0",
   "versionId": "0.1",
   "name": "raumBot",
   "desc": "Bot für die Raumsuche",
   "culture": "de-de",
+  "tokenizerVersion": "1.0.0",
   "intents": [
     {
       "name": "None"
@@ -279,6 +280,33 @@
       ]
     },
     {
+      "text": "benötige ein zimmer in 10 minuten",
+      "intent": "raumSuchen",
+      "entities": [
+        {
+          "entity": "zeitRaum",
+          "startPos": 23,
+          "endPos": 32
+        }
+      ]
+    },
+    {
+      "text": "benötige einen raum in der nähe",
+      "intent": "raumSuchen",
+      "entities": []
+    },
+    {
+      "text": "benötige einen raum mit beamer sofort",
+      "intent": "raumSuchen",
+      "entities": [
+        {
+          "entity": "zeitRaum",
+          "startPos": 31,
+          "endPos": 36
+        }
+      ]
+    },
+    {
       "text": "benötigt wird ein raum in karlsruhe",
       "intent": "raumSuchen",
       "entities": [
@@ -311,9 +339,64 @@
       "entities": []
     },
     {
+      "text": "brauche einen raum für kleine gruppe in einer halben stunde",
+      "intent": "raumSuchen",
+      "entities": [
+        {
+          "entity": "zeitRaum",
+          "startPos": 37,
+          "endPos": 58
+        }
+      ]
+    },
+    {
+      "text": "brauche einen raum in 30 minuten",
+      "intent": "raumSuchen",
+      "entities": [
+        {
+          "entity": "zeitRaum",
+          "startPos": 22,
+          "endPos": 31
+        }
+      ]
+    },
+    {
+      "text": "brauche einen raum in einer viertelstunde",
+      "intent": "raumSuchen",
+      "entities": [
+        {
+          "entity": "zeitRaum",
+          "startPos": 19,
+          "endPos": 40
+        }
+      ]
+    },
+    {
+      "text": "brauche nachher einen raum",
+      "intent": "raumSuchen",
+      "entities": [
+        {
+          "entity": "zeitRaum",
+          "startPos": 8,
+          "endPos": 14
+        }
+      ]
+    },
+    {
       "text": "brauche raum für 3 personen",
       "intent": "raumSuchen",
       "entities": []
+    },
+    {
+      "text": "brauche später einen raum für kleine gruppe",
+      "intent": "raumSuchen",
+      "entities": [
+        {
+          "entity": "zeitRaum",
+          "startPos": 8,
+          "endPos": 13
+        }
+      ]
     },
     {
       "text": "buch katrin und mir einen raum",
@@ -344,6 +427,17 @@
           "entity": "zeitRaum",
           "startPos": 47,
           "endPos": 50
+        }
+      ]
+    },
+    {
+      "text": "buch mir einen raum für 5 personen mit beamer und whiteboard in einer halben stunde",
+      "intent": "raumSuchen",
+      "entities": [
+        {
+          "entity": "zeitRaum",
+          "startPos": 61,
+          "endPos": 82
         }
       ]
     },
@@ -467,17 +561,6 @@
       ]
     },
     {
-      "text": "buch mir einen raum mit jannick weichert",
-      "intent": "raumSuchen",
-      "entities": [
-        {
-          "entity": "namePerson",
-          "startPos": 24,
-          "endPos": 39
-        }
-      ]
-    },
-    {
       "text": "buch mir morgen früh einen raum",
       "intent": "raumSuchen",
       "entities": [
@@ -523,6 +606,22 @@
           "entity": "zeitRaum",
           "startPos": 9,
           "endPos": 14
+        }
+      ]
+    },
+    {
+      "text": "buche eine raum für 4 personen",
+      "intent": "raumSuchen",
+      "entities": []
+    },
+    {
+      "text": "buche einen raum für in einer stunde",
+      "intent": "raumSuchen",
+      "entities": [
+        {
+          "entity": "zeitRaum",
+          "startPos": 21,
+          "endPos": 35
         }
       ]
     },
@@ -657,17 +756,6 @@
       ]
     },
     {
-      "text": "buche mir einen raum mit katrin",
-      "intent": "raumSuchen",
-      "entities": [
-        {
-          "entity": "namePerson",
-          "startPos": 25,
-          "endPos": 30
-        }
-      ]
-    },
-    {
       "text": "buche mir einen raum mit melanie burkhardt",
       "intent": "raumSuchen",
       "entities": [
@@ -717,6 +805,22 @@
       ]
     },
     {
+      "text": "ich benötige ein zimmer jetzt gleich",
+      "intent": "raumSuchen",
+      "entities": [
+        {
+          "entity": "zeitRaum",
+          "startPos": 24,
+          "endPos": 28
+        },
+        {
+          "entity": "zeitRaum",
+          "startPos": 30,
+          "endPos": 35
+        }
+      ]
+    },
+    {
       "text": "ich benötige einen raum hier",
       "intent": "raumSuchen",
       "entities": []
@@ -727,6 +831,27 @@
       "entities": []
     },
     {
+      "text": "ich benötige jetzt einen raum in der nähe",
+      "intent": "raumSuchen",
+      "entities": []
+    },
+    {
+      "text": "ich brauche einen raum für 3 personen",
+      "intent": "raumSuchen",
+      "entities": []
+    },
+    {
+      "text": "ich brauche sofort einen raum in der nähe",
+      "intent": "raumSuchen",
+      "entities": [
+        {
+          "entity": "zeitRaum",
+          "startPos": 12,
+          "endPos": 17
+        }
+      ]
+    },
+    {
       "text": "ich suche einen raum in der nähe",
       "intent": "raumSuchen",
       "entities": []
@@ -735,6 +860,105 @@
       "text": "ich suche einen raum mit beamer.",
       "intent": "raumSuchen",
       "entities": []
+    },
+    {
+      "text": "in 11 minuten raum buchen",
+      "intent": "raumSuchen",
+      "entities": [
+        {
+          "entity": "zeitRaum",
+          "startPos": 3,
+          "endPos": 12
+        }
+      ]
+    },
+    {
+      "text": "in 12 stunden",
+      "intent": "raumSuchen",
+      "entities": [
+        {
+          "entity": "zeitRaum",
+          "startPos": 3,
+          "endPos": 12
+        }
+      ]
+    },
+    {
+      "text": "in 2 stunden raum buchen",
+      "intent": "raumSuchen",
+      "entities": [
+        {
+          "entity": "zeitRaum",
+          "startPos": 3,
+          "endPos": 11
+        }
+      ]
+    },
+    {
+      "text": "in 3 stunden",
+      "intent": "raumSuchen",
+      "entities": [
+        {
+          "entity": "zeitRaum",
+          "startPos": 3,
+          "endPos": 11
+        }
+      ]
+    },
+    {
+      "text": "in 43 minuten raum buchen",
+      "intent": "raumSuchen",
+      "entities": [
+        {
+          "entity": "zeitRaum",
+          "startPos": 3,
+          "endPos": 12
+        }
+      ]
+    },
+    {
+      "text": "in 5 minuten raum buchen",
+      "intent": "raumSuchen",
+      "entities": [
+        {
+          "entity": "zeitRaum",
+          "startPos": 0,
+          "endPos": 11
+        }
+      ]
+    },
+    {
+      "text": "in 5 minuten will ich einen raum",
+      "intent": "raumSuchen",
+      "entities": [
+        {
+          "entity": "zeitRaum",
+          "startPos": 0,
+          "endPos": 11
+        }
+      ]
+    },
+    {
+      "text": "in 5 stunden",
+      "intent": "raumSuchen",
+      "entities": [
+        {
+          "entity": "zeitRaum",
+          "startPos": 3,
+          "endPos": 11
+        }
+      ]
+    },
+    {
+      "text": "in einer dreiviertel stunde",
+      "intent": "raumSuchen",
+      "entities": [
+        {
+          "entity": "zeitRaum",
+          "startPos": 0,
+          "endPos": 26
+        }
+      ]
     },
     {
       "text": "meetingraum um die mittagszeit buchen",
@@ -812,17 +1036,6 @@
       ]
     },
     {
-      "text": "reservier katrin einen raum",
-      "intent": "raumSuchen",
-      "entities": [
-        {
-          "entity": "namePerson",
-          "startPos": 10,
-          "endPos": 15
-        }
-      ]
-    },
-    {
       "text": "reservier mir ein zimmer mit jannick weichert",
       "intent": "raumSuchen",
       "entities": [
@@ -866,7 +1079,23 @@
       ]
     },
     {
+      "text": "später brauche ich einen raum mit beamer",
+      "intent": "raumSuchen",
+      "entities": [
+        {
+          "entity": "zeitRaum",
+          "startPos": 0,
+          "endPos": 5
+        }
+      ]
+    },
+    {
       "text": "teamraum buchen!",
+      "intent": "raumSuchen",
+      "entities": []
+    },
+    {
+      "text": "um halb 6 brauche ich eine raum für 8 personen bitte",
       "intent": "raumSuchen",
       "entities": []
     },
