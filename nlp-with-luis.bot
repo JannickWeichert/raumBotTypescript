@@ -1,5 +1,5 @@
 {
-    "name": "nlp-with-luis",
+    "name": "Raumreservierung Chatbot",
     "description": "",
     "services": [
         {
@@ -23,6 +23,6 @@
     ],
     "padlock": "",
     "version": "2.0",
-    "path": "C:\\Users\\burkh\\Documents\\15_Master\\02_WPF\\Technologiegestütztes Lernen\\raumBotTypescript-master\\nlp-with-luis.bot",
-    "overrides": null
+    "overrides": null,
+    "path": "/Users/jawe/raumBotTypescriptGit/nlp-with-luis.bot"
 }

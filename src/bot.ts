@@ -183,7 +183,6 @@ export class LuisBot {
 
         });
 
-
         uhrzeit.setSeconds(0);
         console.log(uhrzeit.toLocaleTimeString());
         let res = ' am ' + uhrzeit.toLocaleString('de-DE', {day: 'numeric'}) + '.' + uhrzeit.toLocaleString('de-DE', {month: 'numeric'});
@@ -263,13 +262,10 @@ export class LuisBot {
     public async onTurn(turnContext: TurnContext) {
         // By checking the incoming Activity type, the bot only calls LUIS in appropriate cases.
         if (turnContext.activity.type === ActivityTypes.Message) {
-            // Perform a call to LUIS to retrieve results for the user's message.
+            // LUIS NLU Result
             const results: RecognizerResult = await this.luisRecognizer.recognize(turnContext);
-
             const entities: any = results.entities;
-
             let result: string = LuisBot.getPersonString('', LuisBot.getPersons(entities), turnContext);
-
             result = LuisBot.getAusstattungsString(result, LuisBot.getAusstattung(entities), turnContext);
             result = LuisBot.getTeilnehmerString(result, LuisBot.getTeilnehmer(entities), turnContext);
             result = LuisBot.getOrtString(result, LuisBot.getOrt(entities), turnContext);
@@ -295,7 +291,7 @@ export class LuisBot {
         } else if (turnContext.activity.type === ActivityTypes.ConversationUpdate &&
             turnContext.activity.recipient.id !== turnContext.activity.membersAdded[0].id) {
             // If the Activity is a ConversationUpdate, send a greeting message to the user.
-            await turnContext.sendActivity('Welcome to the NLP with LUIS sample! Send me a message and I will try to predict your intent.');
+            await turnContext.sendActivity('Willkommen bei dem Raumbuchungs-Chatbot. Welchen Raum darf ich für dich buchen?');
         } else if (turnContext.activity.type !== ActivityTypes.ConversationUpdate) {
             // Respond to all other Activity types.
             await turnContext.sendActivity(`[${ turnContext.activity.type }]-type activity detected.`);
